@@ -1,18 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FrutaComponent } from './fruta/fruta.component';
+import { ListadoAlumnoComponent } from './listado-alumno/listado-alumno.component';
+import { FlujoInformacionComponent } from './flujo-informacion/flujo-informacion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FrutaComponent
+    FrutaComponent,
+    ListadoAlumnoComponent,
+    FlujoInformacionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
