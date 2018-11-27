@@ -3,22 +3,18 @@
   <div style="text-align:center">
     <ul class="nav nav-tabs  nav-fill">
       <li class="nav-item">
-        <a class="nav-link active" href="home">Home</a>
+        <a class="nav-link" [routerLink]="['home']"routerLinkActive="active">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="fruta">Fruta</a>
+        <a class="nav-link" [routerLink]="['fruta']" routerLinkActive="active">Fruta</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="flujo">Flujo de datos</a>
+        <a class="nav-link" [routerLink]="['flujo']" routerLinkActive="active">Flujo de datos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="listado">Listado-alumno</a>
+        <a class="nav-link" [routerLink]="['listado']" routerLinkActive="active">Listado-alumno</a>
       </li>
     </ul>
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
-    <h2>Autor: {{autor}}</h2>
-    <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    
 <!--Donde se carga cada componente dependiendo de su ruta-->
 <router-outlet></router-outlet>
