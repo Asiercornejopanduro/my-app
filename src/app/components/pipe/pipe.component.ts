@@ -51,12 +51,12 @@ export class PipeComponent implements OnInit {
     p.sexo = Sexos.Indefinido;
     this.personas.push(p);
 
-    p= new Persona();
+    p = new Persona();
     p.nombre = "Adrian";
     p.sexo = Sexos.Masculino;
     this.personas.push(p);
 
-     p = new Persona();
+    p = new Persona();
     p.nombre = "Ainara";
     p.sexo = Sexos.Femenino;
     this.personas.push(p);
@@ -66,8 +66,23 @@ export class PipeComponent implements OnInit {
     p.sexo = Sexos.Masculino;
     this.personas.push(p);
 
-     p= new Persona();
+    p = new Persona();
     p.nombre = "Andrea";
+    p.sexo = Sexos.Femenino;
+    this.personas.push(p);
+
+    p = new Persona();
+    p.nombre = "Alain";
+    p.sexo = Sexos.Masculino;
+    this.personas.push(p);
+
+    p = new Persona();
+    p.nombre = "Luis";
+    p.sexo = Sexos.Masculino;
+    this.personas.push(p);
+
+    p = new Persona();
+    p.nombre = "Valeria";
     p.sexo = Sexos.Femenino;
     this.personas.push(p);
 
