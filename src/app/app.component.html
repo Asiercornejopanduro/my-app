@@ -1,20 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-  <div style="text-align:center">
-    <ul class="nav nav-tabs  nav-fill">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['home']"routerLinkActive="active">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['fruta']" routerLinkActive="active">Fruta</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['flujo']" routerLinkActive="active">Flujo de datos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['listado']" routerLinkActive="active">Listado-alumno</a>
-      </li>
-    </ul>
-    
-<!--Donde se carga cada componente dependiendo de su ruta-->
-<router-outlet></router-outlet>
+<div style="text-align:center">
+  <ul class="nav nav-tabs  nav-fill">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['fruta']" routerLinkActive="active">Fruta</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['flujo']" routerLinkActive="active">Flujo de datos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['listado']" routerLinkActive="active">Listado-alumno</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['videojuego-detalle']" routerLinkActive="active">Detalle del videojuego</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['pipe']" routerLinkActive="active">Pipes</a>
+    </li>
+  </ul>
+
+  <!--Donde se carga cada componente dependiendo de su ruta-->
+  <router-outlet></router-outlet>
