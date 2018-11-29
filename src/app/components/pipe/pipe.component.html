@@ -1,7 +1,8 @@
 <h2 class="color-angular">Pipes</h2>
 <a href="https://angular.io/api?type=pipe" target="_blank" class="color-angular">API para pipes</a><br>
 <a href="https://angular.io/guide/pipes" target="_blank" class="color-angular">Documentación Oficial</a>
-<p>En Angular 2 Los pipes o filtros nos permiten alterar la forma en la que se van a visualizar los datos. Podemos usar los predefinidos o crear los nuestros propios.</p>
+<p>En Angular 2 Los pipes o filtros nos permiten alterar la forma en la que se van a visualizar los datos. Podemos usar
+  los predefinidos o crear los nuestros propios.</p>
 
 <h3 class="color-angular">Pipes de Angular</h3>
 
@@ -11,12 +12,13 @@
 <p><b>Fecha con pipe</b> {{fecha | date:"dd-MM-yyyy"}}</p>
 <p><b>PI sin pipe</b> {{pi}}</p>
 <p><b>PI con pipe number: 1.0-2</b> {{pi | number: '1.0-2'}}</p>
-<p><b>PI con pipe number: '1.0-2': 'es-ES'</b> {{pi | number: '1.0-2': 'es'}} <span class="text-danger">No tenemos locale para Castellano mirar consola</span></p>
+<p><b>PI con pipe number: '1.0-2': 'es-ES'</b> {{pi | number: '1.0-2': 'es'}} <span class="text-danger">No tenemos
+    locale para Castellano mirar consola</span></p>
 
 
 <div class="row">
   <h4>Datos con pipe JSON</h4>
-    {{videojuegos | json}}
+  {{videojuegos | json}}
 
 </div>
 
@@ -45,14 +47,18 @@
 
 
 <h3 class="color-angular">Pipes propios</h3>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bDcD0Cqx6io" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bDcD0Cqx6io" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>
 
 <h3 class="color-angular mt-4 mb-4">Array de frutas</h3>
-<ol>
-  <li *ngFor="let f of frutas">{{f | json}}</li>
-</ol>
-<app-fruta-card></app-fruta-card>
-<a href="http://www.campus.formacion.ipartek.com/moodle/mod/page/view.php?id=1254" target="_blank" class="color-angular">Teoría programación funcional con arrays</a>
+<div class="row">
+  <div class="col" *ngFor="let f of frutas">
+    <app-fruta-card [_fruta]="f"></app-fruta-card>
+  </div>
+</div>
+
+<a href="http://www.campus.formacion.ipartek.com/moodle/mod/page/view.php?id=1254" target="_blank" class="color-angular">Teoría
+  programación funcional con arrays</a>
 
 <h4 class="mt-4">Precio total de las frutas => <b>{{precioTotal | number: '1.0-2': 'es'}}</b>&euro;</h4>
 <h4 class="mt-4">Array solo con los "nombres" => <b>{{nombresFrutas | json}}</b></h4>

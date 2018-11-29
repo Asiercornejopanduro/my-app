@@ -50,8 +50,10 @@ export class PipeComponent implements OnInit {
     f.nombre= 'banana';
     f.precio= 3.15;
     f.calorias= 500;
+    f.descuento=5;
     f.colores= ['amarillo', 'negro'];
     f.oferta= true;
+    f.imagen="./assets/img/banana.jpg"
 
     this.frutas.push(f);
 
@@ -59,8 +61,10 @@ export class PipeComponent implements OnInit {
     f.nombre= 'pera';
     f.precio= 2;
     f.calorias= 350;
+    f.descuento=0;
     f.colores= ['amarillo', 'verde'];
     f.oferta= false;
+    f.imagen="./assets/img/pera.jpg"
 
     this.frutas.push(f);
 
@@ -68,8 +72,10 @@ export class PipeComponent implements OnInit {
     f.nombre= 'fresa';
     f.precio= 0.75;
     f.calorias= 100;
+    f.descuento=25;
     f.colores= ['rosa', 'rojo', 'verde'];
     f.oferta= true;
+    f.imagen="./assets/img/fresa.jpg"
 
     this.frutas.push(f);
 

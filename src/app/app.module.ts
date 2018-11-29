@@ -20,6 +20,7 @@ import { PipeComponent } from './components/pipe/pipe.component';
 import { VideojuegoPipe } from './pipes/videojuego.pipe';
 import { PersonaPipe } from './pipes/persona.pipe';
 import { FrutaCardComponent } from './components/fruta-card/fruta-card.component';
+import { ComparadorComponent } from './components/comparador/comparador.component';
 
 //Providers o servicios
 
@@ -35,7 +36,8 @@ import { FrutaCardComponent } from './components/fruta-card/fruta-card.component
     PipeComponent,
     VideojuegoPipe,
     PersonaPipe,
-    FrutaCardComponent
+    FrutaCardComponent,
+    ComparadorComponent
   ],
   imports: [
     BrowserModule,

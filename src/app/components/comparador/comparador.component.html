@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col">
+    <h2 class="listado">Listado de frutas</h2>
+    <ol>
+     <li class="list-group-item" *ngFor="let f of frutas" (click)="seleccionar(f)">{{f.nombre}}</li>
+    </ol>
+
+  </div>
+
+  <div class="col">
+
+    <app-fruta-card [_fruta]="fruta1"></app-fruta-card>
+
+  </div>
+
+  <div class="col">
+      <app-fruta-card [_fruta]="fruta2"></app-fruta-card>
+
+  </div>
+
+</div>
