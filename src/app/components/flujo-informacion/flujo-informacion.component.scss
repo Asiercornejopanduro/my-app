@@ -1,14 +1,18 @@
 .remarcar{
-    background-color: yellow;
+    background-color:#ff0;
 }
 
 .remarcar2{
-    background-color: red;
+    background-color:#f00;
 }
-.grid-container{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
+
+.container{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap:1em;
+    margin:0 2em;
 }
-.grid-item{
-    border: solid 1px black;
+
+.cabecera{
+    text-align: center;
 }

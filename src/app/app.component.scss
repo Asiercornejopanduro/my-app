@@ -1,3 +1,16 @@
 h1{
-    color:red;
+    color:black;
+    margin-top:1em;
+}
+
+ul.nav{
+    margin-bottom:3em;
+}
+
+ul.nav li a{
+    color:blue;
+}
+
+.active{
+    color:#333 !important;
 }

@@ -3,25 +3,24 @@ export class Videojuego {
     private _titulo: string;
     private _imagen: string;
     private _descripcion: string;
-    private _anyo: number;                           // año publicacion
+    private _anyo: number;           // Año publicación
     private _precio: number;
     private _alquilado: boolean;
 
-    constructor() {
-        this.titulo = 'Sin titulo';
+    constructor(){
+        this.titulo = 'Sin título';
         this.imagen = 'assets/img/videogame_cover.png';
-        this.descripcion = 'lorem ipsum......';
+        this.descripcion = 'Lorem ipsum...';
         this.anyo = 0;
         this.precio = 0;
         this.alquilado = true;
     }
 
-    get titulo(): string {
+    public get titulo(): string {
         return this._titulo;
     }
-
-    set titulo( titulo: string) {
-        console.debug('*** set titulo( titulo: string)');
+    public set titulo(titulo: string) {
+        console.debug('*** set titulo(titulo: string)');
         this._titulo = titulo;
     }
 
@@ -59,6 +58,5 @@ export class Videojuego {
     public set alquilado(value: boolean) {
         this._alquilado = value;
     }
-
 
 }

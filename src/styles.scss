@@ -1,10 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-app-fruta{
-    border: 1px solid black;
-    display: inline-block;
+
+.color-angular{
+    color:#DD0031;
 }
 
-app-listado-alumno{
-    border: 1px solid black;
-    display: inline-block;
+app-fruta{
+    border:1px solid red;
+    display:block;
+    margin:0 auto;
+    width:50%;
+}
+
+app-listado-clase{
+    border:1px solid red;
+    display:block;
+    margin:0 auto;
+    width:50%;
 }

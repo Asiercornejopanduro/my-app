@@ -1,31 +1,41 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule}   from '@angular/forms';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/es';
+registerLocaleData(localeFr);
 
+// Componentes
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FrutaComponent } from './components/fruta/fruta.component';
-import { ListadoAlumnoComponent } from './components/listado-alumno/listado-alumno.component';
+import { ListadoClaseComponent } from './components/listado-clase/listado-clase.component';
 import { FlujoInformacionComponent } from './components/flujo-informacion/flujo-informacion.component';
-import { Page404Component } from './components/page404/page404.component';
 import { HomeComponent } from './components/home/home.component';
+import { Page404Component } from './components/page404/page404.component';
 import { VideojuegoDetalleComponent } from './components/videojuego-detalle/videojuego-detalle.component';
 import { PipeComponent } from './components/pipe/pipe.component';
+
+//Pipes
 import { VideojuegoPipe } from './pipes/videojuego.pipe';
 import { PersonaPipe } from './pipes/persona.pipe';
+import { FrutaCardComponent } from './components/fruta-card/fruta-card.component';
+
+//Providers o servicios
 
 @NgModule({
   declarations: [
     AppComponent,
     FrutaComponent,
-    ListadoAlumnoComponent,
+    ListadoClaseComponent,
     FlujoInformacionComponent,
-    Page404Component,
     HomeComponent,
+    Page404Component,
     VideojuegoDetalleComponent,
     PipeComponent,
     VideojuegoPipe,
-    PersonaPipe
+    PersonaPipe,
+    FrutaCardComponent
   ],
   imports: [
     BrowserModule,
@@ -35,4 +45,4 @@ import { PersonaPipe } from './pipes/persona.pipe';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { }						

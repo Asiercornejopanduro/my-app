@@ -1,12 +1,11 @@
-<p>
-  Componente generado con el comando:
-</p>
-<p><code>ng g c fruta</code></p>
-<p><code>ng generate componente {{titulo}}</code></p>
-<p>* Recordar declararlo en <b>app.module.ts</b></p>
-<h3>Listado de frutas</h3>
-<p>Usamos la directiva <b>*ngFor</b> para iterar el array de frutas</p>
-<ol>
-  <li *ngFor="let f of frutas">{{f}}</li>
+<p>Componente generado con el comando:</p>
+<p><code>ng generate component {{titulo}}</code></p>
+<p><code>ng g c {{titulo}}</code></p>
+<p>*recordar declararlo en <b>app.module.ts</b></p>
 
+<h3>Listado de frutas</h3>
+<p>Usamos la directiva <b>*ngFor</b> para iterar sobre el array de frutas.</p>
+<ol>
+  <!-- El ngFor con un * NO con dos -->
+  <li *ngFor="let f of frutas">{{f}}</li>
 </ol>

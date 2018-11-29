@@ -1,0 +1,26 @@
+.card-head{
+    position: relative;
+/*TODO los colores deben estar definidos en el styles global y uar variables*/
+    .descuento{
+        position: absolute;
+        top:8px;
+        right:10px;
+        background-color: red;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 1.3em;
+        padding: 10px 10px;
+        font-weight: 600;
+
+    }
+    .calorias{
+        position: absolute;
+        font-size: 1.3em;
+        color: green;
+        bottom: 0;
+        right: 10px;
+
+    }
+    
+}
+

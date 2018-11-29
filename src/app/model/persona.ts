@@ -54,4 +54,5 @@ export class Persona {
     public set edad(value: number) {
         this._edad = value;
     }
+
 }

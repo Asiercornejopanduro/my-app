@@ -1,32 +1,99 @@
-<h2 class="text-info">{{titulo | uppercase }}</h2>
-<p>Componente para aprender usar una CLASE o POJO <b>model/videojuego.ts</b>. Vamos a guardar todas las clases en la carpeta <b>model</b></p>
+<h2>{{titulo | uppercase}}</h2>
+<p>Componente para aprender a usar una CLASE o POJO <b>model/videojuego.ts</b>.</p>
+<p>Vamos a guardar todas las CLASES en la carpeta <b>MODEL</b>.</p>
+
+<h3>{{videojuego.titulo}}</h3>
+
+<div class="row">
+
+  <div class="col-7">
+    <h2>Detalle del Objeto</h2>
+    <p>Usamos el <b>pipe json</b> para mostrar el objeto, siempre para depurar o para pruebas.</p>
+    <p>{{videojuego | json}}</p>
+
+    <p><b>Sin usar el pipe:</b></p>
+    <p>{{videojuego}}</p>
+
+  </div>
+
+  <div class="col-5">
+
+    <h2>Maquetación del Objeto</h2>
+    <div class="card border-{{(videojuego.alquilado)? 'danger' : 'success'}}" style="width: 18rem;">
+      <span class="badge badge-{{(videojuego.alquilado)? 'danger' : 'success'}} alquilado">{{(videojuego.alquilado)? 'Alquilado' : 'Disponible'}}</span>
+      <img class="card-img-top" src="{{videojuego.imagen}}" alt="Card image cap">
+      <div class="card-body">
+        
+        <div class="row justify-content-between">
+          <h5 class="card-title">{{videojuego.titulo}}</h5>
+          <span>Año <b>{{videojuego.anyo}}</b></span>
+        </div>
+
+        <div class="row justify-content-between">
+          <p class="card-text">{{videojuego.descripcion}}</p>
+          <span>Precio <b>{{videojuego.precio}}</b></span>
+        </div>
+      </div> <!-- /.card-body -->
+
+    </div> <!-- /.card -->
+
+  </div> <!-- /.col -->
+
+</div>
 
 <div class="row">
   <div class="col">
-    <h3>Detalle del Objeto</h3>
-    <p>Usamos el <b>pipe json</b> para mostrar el objeto, siempre para depurar</p>
-    {{videojuego | json}}
-    <p></p>
-    <p></p>
-    <p><b>Sin usar el pipe:</b></p>
-    {{videojuego}}
+    <h2>Persona default</h2>
+    <p>Nombre -> {{persona.nombre}}</p>
+    <p>Apellidos -> {{persona.apellidos}}</p>
+    <p>Sexo -> {{persona.sexo}}</p>
+    <p>Email -> {{persona.email}}</p>
+    <p>Edad -> {{persona.edad}}</p>
   </div>
-
+  
   <div class="col">
-    <h3>Maquetación del Objeto</h3>
-    <div class="card" style="width: 18rem;">  
-      <span class="badge badge-{{(videojuego.alquilado)?'danger':'success'}}">
-        {{(videojuego.alquilado)?'Alquilado':'Disponible'}}
-      </span>
-      <span class="badge badge-secondary">{{videojuego.anyo}}</span>
-      <img class="card-img-top" src="{{videojuego.imagen}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title text-info">{{videojuego.titulo}}</h5>
-        <p class="text-muted float-right">{{videojuego.precio}} €</p>
-        <p class="card-text">{{videojuego.descripcion}}</p>      
-      </div>
-    </div>
+      <h2>Mi persona</h2>
+      <p>Nombre -> {{yo.nombre}}</p>
+      <p>Apellidos -> {{yo.apellidos}}</p>
+      <p>Sexo -> {{yo.sexo}}</p>
+      <p>Email -> {{yo.email}}</p>
+      <p>Edad -> {{yo.edad}}</p>
+  </div>
+    
+  <div class="col">
+      <h2>Compañera</h2>
+      <p>Nombre -> {{compa.nombre}}</p>
+      <p>Apellidos -> {{compa.apellidos}}</p>
+      <p>Sexo -> {{compa.sexo}}</p>
+      <p>Email -> {{compa.email}}</p>
+      <p>Edad -> {{compa.edad}}</p>
   </div>
 
-</div><!-- <div class="row"> -->
- 
+</div>
+
+<div class="row mt-4">
+  <div class="col">
+    <h4>Personas totales</h4>
+    <ul>
+      <li *ngFor="let p of personas">{{p.nombre}} - {{p.sexo}}</li>
+    </ul>
+  </div>  
+  <div class="col">
+    <h4>Personas hombres</h4>
+    <ul>
+      <li *ngFor="let p of personas | sexo:'Masculino'">{{p.nombre}} - {{p.sexo}}</li>
+    </ul>
+  </div>
+  <div class="col">
+    <h4>Personas mujeres</h4>
+    <ul>
+      <li *ngFor="let p of personas | sexo:'Femenino'">{{p.nombre}} - {{p.sexo}}</li>
+    </ul>
+  </div>
+  <div class="col">
+    <h4>Personas indefinidas</h4>
+    <ul>
+      <li *ngFor="let p of personas | sexo:'Indefinido'">{{p.nombre}} - {{p.sexo}}</li>
+    </ul>
+  </div>
+</div>
