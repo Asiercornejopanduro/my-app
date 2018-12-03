@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Fruta } from 'src/app/model/fruta';
 import { PipeComponent } from '../pipe/pipe.component';
 import { LineaProducto } from 'src/app/model/linea-producto';
+import { FrutaService } from 'src/app/providers/fruta.service';
 
 @Component({
   selector: 'app-comparador',
@@ -14,51 +15,26 @@ export class ComparadorComponent implements OnInit {
   private fruta1: Fruta;
   private fruta2: Fruta;
   private carroCompra: LineaProducto[];
+  private totalCompra:number;
 
 
-
-  constructor() {
+  /*FrutaService es @Injectable por lo cual debemos declararlo
+  
+  */
+  constructor(public frutaService: FrutaService) {
     this.frutas = [];
-    let fruta: Fruta = new Fruta();
-    fruta.nombre = "banana";
-    fruta.imagen = "./assets/img/banana.jpg"
-    fruta.calorias = 12;
-    fruta.precio = 12;
-    fruta.colores = ['amarillo', 'verde'];
-    fruta.descuento = 0;
-    fruta.oferta = false;
-
-
-    this.frutas.push(fruta);
-
-    fruta = new Fruta();
-    fruta.nombre = 'fresa';
-    fruta.precio = 0.75;
-    fruta.calorias = 100;
-    fruta.descuento = 25;
-    fruta.colores = ['rosa', 'rojo', 'verde'];
-    fruta.oferta = true;
-    fruta.imagen = "./assets/img/fresa.jpg"
-    this.frutas.push(fruta);
-
-    fruta = new Fruta();
-    fruta.nombre = 'pera';
-    fruta.precio = 0.75;
-    fruta.calorias = 100;
-    fruta.descuento = 15;
-    fruta.colores = ['rosa', 'rojo', 'verde'];
-    fruta.oferta = true;
-    fruta.imagen = "./assets/img/pera.jpg"
-    this.frutas.push(fruta);
-
-
-    this.fruta1 = this.frutas[0];
-    this.fruta2 = this.frutas[1];
-
     this.carroCompra = [];
+    this.totalCompra=0;
   }
 
+
   ngOnInit() {
+
+    this.frutas = this.frutaService.getAll();
+    this.fruta1 = new Fruta();
+    this.fruta2 = new Fruta();
+    this.fruta1 = this.frutas[0];
+    this.fruta2 = this.frutas[1];
   }
 
   seleccionar(fruta: Fruta) {
@@ -72,35 +48,30 @@ export class ComparadorComponent implements OnInit {
     console.debug('ComparadorComponent actualizarCarro, recibimos el evento del compoenente hijo')
     console.debug('Parametro frutaClick= %o', event['frutaClick']);
     let f: Fruta = event['frutaClick'];
-    let l:LineaProducto= new LineaProducto();
-    l.nombre=f.nombre;
-    l.cantidad=1;
-    l.precio=f.precio;
-    l.total+=f.precio;
-if (this.carroCompra.length>0) {
- 
-    
-    let encontrado=this.carroCompra.find(x=>x.nombre===l.nombre);
-    if (encontrado) {
-      encontrado.precio+=l.precio;
-      encontrado.cantidad+=l.cantidad;
-      encontrado.total+=l.total;
+    let l: LineaProducto = new LineaProducto();
+    l.fruta=f;
+    l.nombre = f.nombre;
+    l.cantidad = 1;
+    l.precio = (f.precio)-(f.precio*f.descuento/100) ;
+    l.total += f.precio;
+    this.totalCompra+=l.precio;
+
+    if (this.carroCompra.length > 0) {
+
+
+      let encontrado = this.carroCompra.find(x => x.nombre === l.nombre);
+      if (encontrado) {
+        encontrado.precio += l.precio;
+        encontrado.cantidad += l.cantidad;
+        encontrado.total += l.total;
+      } else {
+        this.carroCompra.push(l);
+      }
+
+
     } else {
       this.carroCompra.push(l);
     }
-      
-      
-    
-    
-      
-   
-  
-} else {
-  this.carroCompra.push(l);
-}
 
-    
-    
-    
   }
 }

@@ -10,10 +10,10 @@
 
   <div class="row">
     <div class="col">
-      <app-fruta-card [_fruta]="fruta1" [_fruta2]="fruta2"(clickCompra)="actualizarCarro($event)"></app-fruta-card>
+      <app-fruta-card [_fruta]="fruta1" [_fruta2]="fruta2" (clickCompra)="actualizarCarro($event)"></app-fruta-card>
     </div>
     <div class="col">
-      <app-fruta-card [_fruta]="fruta2" [_fruta2]="fruta1"(clickCompra)="actualizarCarro($event)"></app-fruta-card>
+      <app-fruta-card [_fruta]="fruta2" [_fruta2]="fruta1" (clickCompra)="actualizarCarro($event)"></app-fruta-card>
     </div>
 
   </div>
@@ -22,8 +22,20 @@
     <div class="col">
       <H3>Registrar eventos de output</H3>
       <p>El componente padre puede recibir eventos del compoente hijo</p>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-shopping-cart"> {{totalCompra| number: '1.2-2'}} €</i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li class="dropdpwn-item" *ngFor="let f of carroCompra"><img src="{{f.fruta.imagen}}" alt="imagen fruta">{{f.nombre}}
+            {{f.cantidad}} {{f.total| number: '1.2-2'}}</li>
+          <li class="dropdpwn-item border-top"><b>TOTAL: {{totalCompra| number: '1.2-2'}} €</b></li>
+        </ul>
+      </div>
+
       <ul>
-        <li *ngFor="let f of carroCompra">{{f.nombre}} {{f.cantidad}} {{f.total}}</li>
+
       </ul>
     </div>
   </div>

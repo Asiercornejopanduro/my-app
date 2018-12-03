@@ -1,3 +1,5 @@
+import { Fruta } from './fruta';
+
 export class LineaProducto {
     private _nombre: string;
     public get nombre(): string {
@@ -27,12 +29,20 @@ export class LineaProducto {
     public set total(value: number) {
         this._total = value;
     }
+    private _fruta: Fruta;
+    public get fruta(): Fruta {
+        return this._fruta;
+    }
+    public set fruta(value: Fruta) {
+        this._fruta = value;
+    }
     
     constructor() {
         this._nombre = '';
         this._precio = 0;
         this._cantidad = 0;
         this._total = 0;
+        this.fruta= new Fruta();
         
 
     }
