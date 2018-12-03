@@ -1,21 +1,31 @@
 <div class="row">
-  <div class="col">
+  <div class="col-4">
     <h2 class="listado">Listado de frutas</h2>
     <ol>
-     <li class="list-group-item" *ngFor="let f of frutas" (click)="seleccionar(f)">{{f.nombre}}</li>
+      <li class="list-group-item" *ngFor="let f of frutas" (click)="seleccionar(f)">{{f.nombre}}</li>
     </ol>
 
   </div>
 
-  <div class="col">
 
-    <app-fruta-card [_fruta]="fruta1"></app-fruta-card>
+  <div class="row">
+    <div class="col">
+      <app-fruta-card [_fruta]="fruta1" [_fruta2]="fruta2"(clickCompra)="actualizarCarro($event)"></app-fruta-card>
+    </div>
+    <div class="col">
+      <app-fruta-card [_fruta]="fruta2" [_fruta2]="fruta1"(clickCompra)="actualizarCarro($event)"></app-fruta-card>
+    </div>
 
   </div>
 
-  <div class="col">
-      <app-fruta-card [_fruta]="fruta2"></app-fruta-card>
-
+  <div class="row">
+    <div class="col">
+      <H3>Registrar eventos de output</H3>
+      <p>El componente padre puede recibir eventos del compoente hijo</p>
+      <ul>
+        <li *ngFor="let f of carroCompra">{{f.nombre}} {{f.cantidad}} {{f.total}}</li>
+      </ul>
+    </div>
   </div>
 
 </div>

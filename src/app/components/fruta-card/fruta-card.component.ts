@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output ,EventEmitter} from '@angular/core';
 import { Fruta } from 'src/app/model/fruta';
 
 @Component({
@@ -10,7 +10,8 @@ export class FrutaCardComponent implements OnInit {
 
   
    _fruta: Fruta;
- 
+  _fruta2?: Fruta;//opcional
+
   @Input ('_fruta') set fruta(value: Fruta) {
     if(value){
       this._fruta=value;
@@ -23,6 +24,16 @@ export class FrutaCardComponent implements OnInit {
     return this._fruta;
   }
   
+@Input ('_fruta2') set fruta2(value:Fruta){
+  this._fruta2=value;
+}
+ get fruta2(): Fruta {
+  return this._fruta2;
+}
+
+//Registrar evento de salida.
+@Output() clickCompra= new EventEmitter();
+
   constructor() {
     console.trace('FrutaCardComponent constructor');
     /*this.fruta = new Fruta();
@@ -41,6 +52,7 @@ export class FrutaCardComponent implements OnInit {
   comprar() {
     console.trace('FrutaCardComponent comprar');
     alert(`lo sentimos pero de momentro tenemos esta opcion desabilitada ##${this.fruta.nombre}##`);
-    
+    //Emitimos el evento al componente padre y enviamos el parametro frutaClick
+    this.clickCompra.emit({frutaClick : this.fruta});
   }
 }
