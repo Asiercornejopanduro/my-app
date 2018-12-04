@@ -1,28 +1,34 @@
 <!--The content below is only a placeholder and can be replaced.-->
-  <ul class="nav nav-tabs nav-fill">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['fruta']" routerLinkActive="active">Fruta</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['lista']" routerLinkActive="active">Listado clase</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['flujo']" routerLinkActive="active">Flujo</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['videojuego-detalle']" routerLinkActive="active">Videojuego Detalle</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['pipe']" routerLinkActive="active">Pipe</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" [routerLink]="['comparador']" routerLinkActive="active">Comparador</a>
-        </li>
-    </ul>
-  <div class="container">
-    <!-- Donde se carga cada Componente en función de la ruta -->
-    <router-outlet></router-outlet>
-  </div>
+<ul class="nav nav-tabs nav-fill">
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['fruta']" routerLinkActive="active">Fruta</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['lista']" routerLinkActive="active">Listado clase</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['flujo']" routerLinkActive="active">Flujo</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['videojuego-detalle']" routerLinkActive="active">Videojuego Detalle</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['pipe']" routerLinkActive="active">Pipe</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['comparador']" routerLinkActive="active">Comparador</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['tareas']" routerLinkActive="active">Tareas</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['formulario']" routerLinkActive="active">Formularios</a>
+  </li>
+</ul>
+<div class="container">
+  <!-- Donde se carga cada Componente en función de la ruta -->
+  <router-outlet></router-outlet>
+</div>

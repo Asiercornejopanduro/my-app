@@ -2,6 +2,7 @@ import { Fruta } from './fruta';
 
 export class LineaProducto {
     private _nombre: string;
+
     public get nombre(): string {
         return this._nombre;
     }
@@ -9,6 +10,7 @@ export class LineaProducto {
         this._nombre = value;
     }
     private _precio: number;
+
     public get precio(): number {
         return this._precio;
     }
@@ -16,6 +18,7 @@ export class LineaProducto {
         this._precio = value;
     }
     private _cantidad: number;
+
     public get cantidad(): number {
         return this._cantidad;
     }
@@ -23,6 +26,7 @@ export class LineaProducto {
         this._cantidad = value;
     }
     private _total: number;
+
     public get total(): number {
         return this._total;
     }
@@ -30,6 +34,7 @@ export class LineaProducto {
         this._total = value;
     }
     private _fruta: Fruta;
+    
     public get fruta(): Fruta {
         return this._fruta;
     }

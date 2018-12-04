@@ -1,0 +1,116 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "tareas": [
+    {
+      "id": 1,
+      "titulo": "Cambiar readme",
+      "terminado": false
+    },
+    {
+      "id": 2,
+      "titulo": "Tarea terminada",
+      "terminado": true
+    },
+    {
+      "id": 3,
+      "titulo": "Formularios reactivos",
+      "terminado": false
+    }
+  ],
+  "frutas": [
+    {
+      "nombre": "banana",
+      "calorias": 12,
+      "colores": [
+        {
+          "color": "amarillo"
+        },
+        {
+          "color": "verde"
+        }
+      ],
+      "oferta": false,
+      "descuento": 0,
+      "imagen": "/assets/img/banana.jpg",
+      "precio": 12
+    },
+    {
+      "nombre": "fresa",
+      "calorias": 100,
+      "colores": [
+        {
+          "color": "rosa"
+        },
+        {
+          "color": "verde"
+        },
+        {
+          "color": "rojo"
+        }
+      ],
+      "oferta": true,
+      "descuento": 25,
+      "imagen": "/assets/img/fresa.jpg",
+      "precio": 0.75
+    },
+    {
+      "nombre": "pera",
+      "calorias": 100,
+      "colores": [
+        {
+          "color": "rosa"
+        },
+        {
+          "color": "verde"
+        },
+        {
+          "color": "rojo"
+        }
+      ],
+      "oferta": true,
+      "descuento": 15,
+      "imagen": "/assets/img/pera.jpg",
+      "precio": 0.65
+    },
+    {
+      "id": -1,
+      "nombre": "Melocoton",
+      "calorias": 0,
+      "precio": 0.33,
+      "oferta": false,
+      "descuento": 0
+    },
+    {
+      "nombre": "sadsadsada",
+      "calorias": 200,
+      "precio": 120,
+      "oferta": false,
+      "descuento": 10,
+      "id": 0
+    },
+    {
+      "nombre": "Uvas",
+      "calorias": 200,
+      "precio": 10,
+      "oferta": false,
+      "descuento": 1,
+      "id": 1
+    }
+  ]
+}

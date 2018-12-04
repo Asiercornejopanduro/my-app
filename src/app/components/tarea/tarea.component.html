@@ -1,0 +1,14 @@
+<h2>
+  Ejemplo de crear un <b>Provider</b> o <b>Service</b> para realizar operaciones de <b>CRUD</b> contra un sevicio <b>REST</b>
+</h2>
+<input type="text" [(ngModel)]="nueva" class="form-control inputNueva">
+<button (click)="nuevaTarea()" class="btn btn-outline btnNueva" type="button">Nueva Tarea</button>
+<ul class="list-group">
+  <input (change)="filtrar()" type="checkbox" checked>{{textoFiltro}}
+  <li class="list-group-item" *ngFor="let t of tareas | completas : todas">
+    <input type="checkbox" checked="{{(t.terminado) ? 'checked':''}}" (change)="terminar(t)" />
+    <span *ngIf="t.terminado"><del>{{t.titulo}}</del></span>
+    <span *ngIf="!t.terminado">{{t.titulo}}</span>
+    <span class="fas fa-trash-alt float-right" (click)="eliminar(t.id)"></span>
+  </li>
+</ul>

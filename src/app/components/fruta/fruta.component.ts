@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FrutaService } from 'src/app/providers/fruta.service';
+import { Fruta } from 'src/app/model/fruta';
 
 @Component({
   selector: 'app-fruta',
@@ -8,17 +10,21 @@ import { Component, OnInit } from '@angular/core';
 export class FrutaComponent implements OnInit {
 
   //Atributos declarar y no inicializar
-  titulo: string;
-  frutas: string[];
 
-  constructor() {
+  frutas: Fruta[];
+
+  constructor(public frutaService: FrutaService) {
     console.trace('FrutaComponent constructor');
-    this.titulo = 'fruta';
-    this.frutas = ['fresa', 'plátano', 'mango', 'kiwi'];
+
+    this.frutas = [];
   }
 
   ngOnInit() {
     console.trace('FrutaComponent ngOnInit');
+    this.frutaService.getAll().subscribe(data => {
+      console.debug('datos recibidos %o', data);
+      this.frutas = data.map(el => el);
+    });
   }
 
 }

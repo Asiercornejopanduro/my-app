@@ -30,11 +30,13 @@ export class ComparadorComponent implements OnInit {
 
   ngOnInit() {
 
-    this.frutas = this.frutaService.getAll();
-    this.fruta1 = new Fruta();
-    this.fruta2 = new Fruta();
-    this.fruta1 = this.frutas[0];
-    this.fruta2 = this.frutas[1];
+    this.frutaService.getAll().subscribe(data =>{
+      console.debug('datos recibidos %o', data);
+      this.frutas=data.map(el =>el);
+      this.fruta1 = this.frutas[0];
+      this.fruta2 = this.frutas[1];
+    });
+   
   }
 
   seleccionar(fruta: Fruta) {
@@ -53,7 +55,7 @@ export class ComparadorComponent implements OnInit {
     l.nombre = f.nombre;
     l.cantidad = 1;
     l.precio = (f.precio)-(f.precio*f.descuento/100) ;
-    l.total += f.precio;
+    l.total += l.precio*l.cantidad;
     this.totalCompra+=l.precio;
 
     if (this.carroCompra.length > 0) {
@@ -74,4 +76,30 @@ export class ComparadorComponent implements OnInit {
     }
 
   }
+
+  sumarFruta(fruta:Fruta,index:number){
+    let f: Fruta=this.carroCompra[index].fruta;
+    let l=this.carroCompra[index];
+    l.cantidad+=1;
+    l.fruta=f;
+    l.nombre = f.nombre;
+    l.precio = (f.precio)-(f.precio*f.descuento/100) ;
+    l.total = ((f.precio)-(f.precio*f.descuento/100))*l.cantidad;
+    this.totalCompra+=l.precio;
+    this.carroCompra[index]=l;
+    
+  }
+  restarFruta(fruta:Fruta,index:number){
+    let f: Fruta=this.carroCompra[index].fruta;
+    let l=this.carroCompra[index];
+    l.cantidad-=1;
+    l.fruta=f;
+    l.nombre = f.nombre;
+    l.precio = (f.precio)-(f.precio*f.descuento/100) ;
+    l.total = ((f.precio)-(f.precio*f.descuento/100))*l.cantidad;
+    this.totalCompra-=l.precio;
+    this.carroCompra[index]=l;
+  }
+
+  
 }
