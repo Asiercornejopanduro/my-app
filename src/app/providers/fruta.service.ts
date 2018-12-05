@@ -29,7 +29,8 @@ export class FrutaService {
       "calorias":fruta.calorias,
       "precio":fruta.precio,
       "oferta":fruta.oferta,
-      "descuento":fruta.descuento
+      "descuento":fruta.descuento,
+      "imagen":fruta.imagen
     
     };
 

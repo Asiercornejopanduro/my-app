@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Fruta } from 'src/app/model/fruta';
 import { FrutaService } from 'src/app/providers/fruta.service';
 
@@ -11,12 +11,16 @@ import { FrutaService } from 'src/app/providers/fruta.service';
 export class FormularioComponent implements OnInit {
   simple: FormControl;//input del formulario
   formulario: FormGroup;//agrupar inputs (FormControl)
-  frutas:Fruta[];
-  
+  frutas: Fruta[];
+  mensaje:string;
+
+
 
   constructor(public frutaService: FrutaService) {
     console.trace('FormularioComponent constructor');
+    const patronImagen: string = "(^http)(s?:\/\/).+(\.(jpg|jpeg|png))$";
     this.frutas = [];
+    this.mensaje="";
 
 
     //control unico
@@ -27,51 +31,57 @@ export class FormularioComponent implements OnInit {
     this.formulario = new FormGroup({
       nombre: new FormControl('',
         [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(50)
-      ]
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(50)
+        ]
       ),
       precio: new FormControl(
         0,//valor inicial
         [//validacones
           Validators.required,
-          Validators.minLength(0),
-          Validators.maxLength(5)
+          Validators.min(0.1),
+          Validators.maxLength(999)
         ]
       ),
       calorias: new FormControl(
         0,//valor inicial
         [//validacones
           Validators.required,
-          Validators.minLength(0),
-          Validators.maxLength(5)
+          Validators.min(1),
+          Validators.maxLength(999)
         ]
       ),
       oferta: new FormControl(
         false,//valor inicial
-        [//validacones
-          Validators.required,
-          
-        ]
+
       ),
       descuento: new FormControl(
         0,//valor inicial
         [//validacones
           Validators.required,
-          Validators.minLength(0),
-          Validators.maxLength(5)
+          Validators.min(0),
+          Validators.max(90)
         ]
-      )
+      ),
+      imagen: new FormControl(
+        '',
+        [
+          Validators.required,
+          Validators.pattern(patronImagen)
+        ]
+      ),
+      colores: new FormArray([this.crearColorFormGroup()], Validators.minLength(1))
 
     });
+
   }
 
   ngOnInit() {
     console.trace('FormularioComponent ngOnInit');
-    this.frutaService.getAll().subscribe(data =>{
+    this.frutaService.getAll().subscribe(data => {
       console.debug('datos recibidos %o', data);
-      this.frutas=data.map(el =>el);
+      this.frutas = data.map(el => el);
     });
   }
 
@@ -82,25 +92,39 @@ export class FormularioComponent implements OnInit {
 
   }
 
-  sumitar(){
-    console.trace('FormularioComponent sumitar %o',this.formulario);
+  sumitar() {
+    console.trace('FormularioComponent sumitar %o', this.formulario);
 
-    let fruta= new Fruta();
-    fruta.nombre=this.formulario.controls.nombre.value;
-    fruta.precio=this.formulario.controls.precio.value;
-    fruta.calorias=this.formulario.controls.calorias.value;
-    fruta.descuento=this.formulario.controls.descuento.value;
-    this.frutaService.crear(fruta).subscribe(data =>{
-      console.debug('datos recibidos %o', data);    
+    let fruta = new Fruta();
+    fruta.nombre = this.formulario.controls.nombre.value;
+    fruta.precio = this.formulario.controls.precio.value;
+    fruta.calorias = this.formulario.controls.calorias.value;
+    fruta.descuento = this.formulario.controls.descuento.value;
+    fruta.imagen = this.formulario.controls.imagen.value;
+    this.frutaService.crear(fruta).subscribe(data => {
+      console.debug('datos recibidos %o', data);
     });
 
 
-    console.debug('llamar provider pasando la fruta %o: ',fruta);
-
+    console.debug('llamar provider pasando la fruta %o: ', fruta);
+    this.mensaje="Fruta añadida correctamente"
 
   }
+  crearColorFormGroup(): FormGroup {
+    return new FormGroup({
+      color: new FormControl('verde', [Validators.required, Validators.minLength(2), Validators.maxLength(15)])
+    })
+  }
 
-  habilitarDescuento(formControl:FormControl){
+  nuevoColor() {
+    let arrayColores=this.formulario.get('colores')as FormArray;
+    arrayColores.push(this.crearColorFormGroup());
+  }
+  eliminarColor(index:number){
+    let arrayColores=this.formulario.get('colores')as FormArray;
+    if (arrayColores.length>1) {
+      arrayColores.removeAt(index);
+    } 
     
   }
 }
