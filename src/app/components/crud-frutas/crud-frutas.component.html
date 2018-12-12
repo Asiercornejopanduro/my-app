@@ -1,0 +1,47 @@
+<div class="col-md-4 btn-crear">
+    <a [routerLink]="['../formulario',-1]" class="btn btn-primary">Crear nueva fruta</a>  			
+  
+</div>
+
+<table id="tablaOrdenable" class="display">
+<thead>
+  <tr>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Calorias</th>
+    <th>Precio</th>
+    <th>Oferta</th>
+    <th>Descuento</th>
+    <th>Colores</th>
+    <th>Imagen</th>
+    
+  </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let f of frutas">
+      <td>{{f.id }}</td>
+      <td><a [routerLink]="['../formulario',f.id]">{{f.nombre }}</a></td>
+      <td>{{f.calorias }}</td>
+      <td>{{f.precio }}</td>
+      <td>{{f.oferta }}</td>
+      <td>{{f.descuento }}</td>
+      <td>{{f.colores|json }}</td>
+      <td><img src="{{f.imagen }}"/></td>
+     
+    </tr>
+</tbody>
+<tfoot>
+  <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Calorias</th>
+      <th>Precio</th>
+      <th>Oferta</th>
+      <th>Descuento</th>
+      <th>Imagen</th>
+  </tr>
+</tfoot>
+</table>
+
+
+

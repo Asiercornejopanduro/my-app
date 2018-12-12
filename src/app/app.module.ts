@@ -19,7 +19,7 @@ import { VideojuegoDetalleComponent } from './components/videojuego-detalle/vide
 import { PipeComponent } from './components/pipe/pipe.component';
 import { TareaComponent } from './components/tarea/tarea.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
-
+import { CrudFrutasComponent } from './components/crud-frutas/crud-frutas.component';
 
 //Pipes
 import { VideojuegoPipe } from './pipes/videojuego.pipe';
@@ -31,6 +31,7 @@ import { TareasPipe } from './pipes/tareas.pipe';
 //Services o providers
 import { FrutaService } from './providers/fruta.service';
 import { TareaService } from './providers/tarea.service';
+
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { TareaService } from './providers/tarea.service';
     TareaComponent,
     TareasPipe,
     FormularioComponent,
+    CrudFrutasComponent,
     
   ],
   imports: [

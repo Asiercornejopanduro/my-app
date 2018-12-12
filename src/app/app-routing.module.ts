@@ -10,6 +10,7 @@ import { PipeComponent } from './components/pipe/pipe.component';
 import { ComparadorComponent } from './components/comparador/comparador.component';
 import { TareaComponent } from './components/tarea/tarea.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { CrudFrutasComponent } from './components/crud-frutas/crud-frutas.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -20,7 +21,9 @@ const routes: Routes = [
   {path: 'pipe', component: PipeComponent},
   {path: 'comparador', component: ComparadorComponent},
   {path: 'formulario', component: FormularioComponent},
+  {path: 'formulario/:id', component: FormularioComponent},
   {path: 'tareas', component: TareaComponent},
+  {path: 'frutas', component: CrudFrutasComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: Page404Component}
 ];

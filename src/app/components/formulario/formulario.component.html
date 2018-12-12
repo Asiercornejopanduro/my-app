@@ -81,7 +81,7 @@
       <small *ngIf="formulario.controls.descuento.valid" class="form-text text-success">Fromato correcto</small>
     </div>
     
-    <input type="submit" value="Crear" class="btn btn-success" [disabled]="formulario.status==='INVALID'">
+    <input type="submit" value="{{(fruta.id===-1) ? 'crear':'modificar'}}" class="btn btn-success" [disabled]="formulario.status==='INVALID'">
     <span class="">{{mensaje}}</span>
   </form>
 </div>

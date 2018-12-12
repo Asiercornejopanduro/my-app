@@ -35,6 +35,7 @@
   ],
   "frutas": [
     {
+      "id": 1,
       "nombre": "banana",
       "calorias": 12,
       "colores": [
@@ -47,10 +48,11 @@
       ],
       "oferta": false,
       "descuento": 0,
-      "imagen": "/assets/img/banana.jpg",
+      "imagen": "https://www.bigbasket.com/media/uploads/p/s/10000345_18-fresho-banana-nendran.jpg",
       "precio": 12
     },
     {
+      "id": 6,
       "nombre": "fresa",
       "calorias": 100,
       "colores": [
@@ -66,10 +68,11 @@
       ],
       "oferta": true,
       "descuento": 25,
-      "imagen": "/assets/img/fresa.jpg",
+      "imagen": "https://plazavea.vteximg.com.br/arquivos/ids/169309-150-150/62312.jpg",
       "precio": 0.75
     },
     {
+      "id": 7,
       "nombre": "pera",
       "calorias": 100,
       "colores": [
@@ -85,7 +88,7 @@
       ],
       "oferta": true,
       "descuento": 15,
-      "imagen": "/assets/img/pera.jpg",
+      "imagen": "http://www.juver.com/wp-content/uploads/2015/06/pera-150x150.jpg",
       "precio": 0.65
     },
     {
@@ -114,6 +117,15 @@
       "descuento": 0,
       "imagen": "https://navidad.es/wp-content/uploads/2008/12/uvas-150x150.jpeg",
       "id": 4
+    },
+    {
+      "nombre": "banana",
+      "calorias": 12,
+      "precio": 12,
+      "oferta": false,
+      "descuento": 0,
+      "imagen": "https://www.bigbasket.com/media/uploads/p/s/10000345_18-fresho-banana-nendran.jpg",
+      "id": 8
     }
   ]
 }

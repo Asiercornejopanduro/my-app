@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Fruta } from 'src/app/model/fruta';
 import { FrutaService } from 'src/app/providers/fruta.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -13,14 +14,18 @@ export class FormularioComponent implements OnInit {
   formulario: FormGroup;//agrupar inputs (FormControl)
   frutas: Fruta[];
   mensaje:string;
+  fruta:Fruta;
+  arrayColores:string[];
 
 
 
-  constructor(public frutaService: FrutaService) {
+  constructor(public frutaService: FrutaService,private route: ActivatedRoute) {
     console.trace('FormularioComponent constructor');
     const patronImagen: string = "(^http)(s?:\/\/).+(\.(jpg|jpeg|png))$";
     this.frutas = [];
     this.mensaje="";
+    this.fruta= new Fruta();
+    this.arrayColores=[];
 
 
     //control unico
@@ -71,7 +76,7 @@ export class FormularioComponent implements OnInit {
           Validators.pattern(patronImagen)
         ]
       ),
-      colores: new FormArray([this.crearColorFormGroup()], Validators.minLength(1))
+      colores: new FormArray([], Validators.minLength(1))
 
     });
 
@@ -79,22 +84,47 @@ export class FormularioComponent implements OnInit {
 
   ngOnInit() {
     console.trace('FormularioComponent ngOnInit');
-    this.frutaService.getAll().subscribe(data => {
+    /*this.frutaService.getAll().subscribe(data => {
       console.debug('datos recibidos %o', data);
       this.frutas = data.map(el => el);
-    });
+    });*/
+
+    this.route.params.subscribe(params => {
+      this.fruta.id = +params['id']; // (+) converts string 'id' to a number
+      // llamar provider para conseguir datos a traves del id
+      this.frutaService.getById(this.fruta.id).subscribe(data =>{
+        this.fruta=data;
+        console.log(this.fruta);
+        this.cargarFormulario();
+        
+      });
+   });
   }
 
   cargarFormulario() {
     console.trace('FormularioComponent cargarFormulario');
-    this.formulario.controls.nombre.setValue('fresa');
-    this.formulario.controls.precio.setValue(2.50);
+    this.formulario.controls.nombre.setValue(this.fruta.nombre);
+    this.formulario.controls.precio.setValue(this.fruta.precio);
+    this.formulario.controls.calorias.setValue(this.fruta.calorias);
+    this.formulario.controls.descuento.setValue(this.fruta.descuento);
+    this.formulario.controls.imagen.setValue(this.fruta.imagen);
+    let arrayColoresForArray = this.formulario.get('colores')as FormArray;
+    this.fruta.colores.forEach(el => {
+      arrayColoresForArray.push(this.crearColorFormGroup(el));
+    });
+    this.formulario.controls.colores.setValue(this.fruta.colores);
+
+
 
   }
 
   sumitar() {
     console.trace('FormularioComponent sumitar %o', this.formulario);
-
+    if (this.fruta.id==-1) {
+      
+    } else {
+      
+    }
     let fruta = new Fruta();
     fruta.nombre = this.formulario.controls.nombre.value;
     fruta.precio = this.formulario.controls.precio.value;
@@ -110,9 +140,14 @@ export class FormularioComponent implements OnInit {
     this.mensaje="Fruta añadida correctamente"
 
   }
-  crearColorFormGroup(): FormGroup {
-    return new FormGroup({
-      color: new FormControl('verde', [Validators.required, Validators.minLength(2), Validators.maxLength(15)])
+
+
+  crearColorFormGroup(color?:string): FormGroup {
+    if(color==undefined){
+      color="por defecto";
+    }
+    return  new FormGroup({
+      color: new FormControl(color, [Validators.required, Validators.minLength(2), Validators.maxLength(15)])
     })
   }
 
